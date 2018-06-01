@@ -116,6 +116,9 @@ class LoginCheck(SetupCleanup):
 			logging.error("Failed to load gmail login page within 90secs")
 			return 1
 		logging.info("Google found in Main Page")
+		google_color = google.value_of_css_property("color")
+		google_font = google.value_of_css_property("font-size")
+		logging.info("Google element color: " + str(google_color) + "\t\t\t & Google Font Size is: " + str(google_font))
 		
 		try:
 			gmail = self.driver.find_element_by_xpath("//*[@id=\":i\"]")
@@ -123,6 +126,9 @@ class LoginCheck(SetupCleanup):
 			logging.error("Failed to locate gmail element")
 			return 1
 		logging.info("Gmail element found in Main Page")
+		gmail_color = google.value_of_css_property("color")
+		gmail_font = google.value_of_css_property("font-size")
+		logging.info("Gmail element color: " + str(gmail_color) + "\t\t\t & Font Size is: " + str(gmail_font))
 		
 		try:
 			compose = self.driver.find_element_by_xpath("/html/body/div[7]/div[3]/div/div[2]/div[1]/div[1]/div[1]/div[2]/div/div/div/div[1]/div/div")
@@ -130,6 +136,9 @@ class LoginCheck(SetupCleanup):
 			logging.error("Failed to locate compose element")
 			return 1
 		logging.info("Compose element found in Main Page")
+		compose_color = google.value_of_css_property("color")
+		compose_font = google.value_of_css_property("font-size")
+		logging.info("Compose element color: " + str(compose_color) + "\t\t\t & Font Size is: " + str(compose_font))
 		time.sleep(5)
 		
 		compose.click()
@@ -182,5 +191,3 @@ if __name__ == '__main__':
 	print "========================"
 	print "Test Completed"
 	print "========================"
-	
-#http://selenium-release.storage.googleapis.com/index.html?path=3.9/
